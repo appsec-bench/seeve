@@ -41,8 +41,8 @@ jobs:
       shell: bash
       run: |
         echo '  make everything'
-        chmod +x build.sh
-        build.sh
+        chmod +x ./build.sh
+        ./build.sh
         exit 1
 
     - name: Perform CodeQL Analysis
