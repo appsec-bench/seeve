@@ -1,4 +1,4 @@
-all:	test1 test2 test3
+all:	test1 test3
 
 test1:
 	gcc -o test1.o test1.c 
