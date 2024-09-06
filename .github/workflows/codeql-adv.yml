@@ -20,25 +20,16 @@ jobs:
       matrix:
         include:
         - language: c-cpp
-          build-mode: manual
+          build-mode: autobuild
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v3
       with:
         languages: ${{ matrix.language }}
         build-mode: ${{ matrix.build-mode }}
-
-    - if: matrix.build-mode == 'manual'
-      shell: bash
-      run: |
-        echo '  make everything'
-        chmod +x ./build.sh
-        ./build.sh
-        exit 0
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
